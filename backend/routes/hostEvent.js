@@ -15,10 +15,16 @@ module.exports = (app) => {
             "description": "string",
             "teams": []
         })
+        let buffer = '';
+        req.on('data', chunk => {
+            buffer += chunk;
+        });
+        req.on('end', () => {
+            console.log(buffer)
+        });
         //console.log(json["events"])
-        console.log(req.body);
-        console.log(req.data);
-        console.log(req.query);
+        console.log("Request: ")
+        console.log(req);
         res.sendStatus(200);
 
         // fs.writeFile(`test.json`, JSON.stringify(json), 'utf8', (err) => {
