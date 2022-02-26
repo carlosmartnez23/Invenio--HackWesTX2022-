@@ -2,11 +2,13 @@ const fs = require('fs');
 require('dotenv').config();
 
 module.exports = (app) => {
+
     function getRandomID(digits) {
         return Math.floor(Math.random() * digits);
     }
 
     app.post("/hostEvent", (req, res) => {
+
         const fileName = process.env.JSON_FILE;
         var json = require(`../${fileName}`);
         json["events"].push({

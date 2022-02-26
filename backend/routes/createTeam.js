@@ -2,28 +2,30 @@
 
 // Dependencies
 var fs = require('fs');
-require('dotenv').config();
 
 
-filePath = require("../${fileName}");
+
 
 const cors=require('cors');
 
 module.exports = (app) =>{
-
-
-    var fileData;
-
-    fs.readFile('teamData.json', 'utf8', (error, data) => {
+    require('dotenv').config();
+    //var fileData;
+    /*fs.readFile(filePath, 'utf8', (error, data) => {
         if(error){
         console.log(error);
         return;
         }
         fileData = JSON.parse(data);
         
-    })
-
-    function createTeam(request, response){
+    })*/
+    
+    app.post('/createTeam', (request, response) => {
+        
+        const fileName = process.env.JSON_TEAM_DATA;
+    
+        var json = require(`../${fileName}`);
+        var fileData = JSON.parse(json);
         let buffer = '';
         console.log("Post request on /createTeam");
         request.on('data', chunk => {
@@ -40,14 +42,13 @@ module.exports = (app) =>{
                     //console.log(event.name)
                     // Found the event, now add the team
                     event.teams.push(obj.team);
-                    console.log(event.teams);
-                    fs.writeFileSync(filePath, JSON.stringify(fileData, null, 2), 'utf8');
+                    fs.writeFileSync(fileName, JSON.stringify(fileData, null, 2), 'utf8');
                     //console.log(event)
                 }
             }
         });
 
         response.status(200).send(JSON.stringify(obj.team));      
-    }
+    });
 }
 
