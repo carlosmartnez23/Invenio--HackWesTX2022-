@@ -2,19 +2,32 @@ const fs = require('fs');
 require('dotenv').config();
 
 module.exports = (app) => {
+    function getRandomID(digits) {
+        return Math.floor(Math.random() * digits);
+    }
 
-    app.get("/hostEvent", (req, res) => {
-        const file_name = process.env.JSON_FILE;
-        var json = require(`../${file_name}`);
-        fs.writeFile(`test.json`, "HELLO", (err) => {
-            if (err)
-                console.log(err);
-            else {
-                console.log("File written successfully\n");
-                console.log("The written has the following contents:");
-                console.log(fs.readFileSync(`test.json`, "utf8"));
-            }
-        });
-        console.log(req.data)
+    app.post("/hostEvent", (req, res) => {
+        const fileName = process.env.JSON_FILE;
+        var json = require(`../${fileName}`);
+        json["events"].push({
+            "name": "Hackathon",
+            "id": 0,
+            "description": "string",
+            "teams": []
+        })
+        //console.log(json["events"])
+        console.log(req.body);
+        console.log(req.data);
+        console.log(req.query);
+        res.sendStatus(200);
+
+        // fs.writeFile(`test.json`, JSON.stringify(json), 'utf8', (err) => {
+        //     if (err)
+        //         console.log(err);
+        //     else {
+        //         console.log("File written successfully\n");
+        //     }
+        // });
+
     });
 };
