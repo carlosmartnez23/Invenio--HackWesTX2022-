@@ -9,6 +9,7 @@ module.exports = app;
 app.get("/", (req, res) => {
     res.status(200).send("HackWesTx!! 2022");
 });
+//app.post("/", (req, res) => {")
 
 require("./config/routes.js")(app);
 
