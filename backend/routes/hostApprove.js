@@ -29,7 +29,6 @@ module.exports = (app) => {
                     };
                     for (var k in event.teams) {
                         let teamObj = event.teams[k];
-                        console.log(teamObj.teamId, obj.teamId, teamObj.maxCapacity, teamObj.currentMembers);
                         if (teamObj.teamId == parseInt(obj.teamId) && teamObj.maxCapacity != teamObj.currentMembers) {
                             console.log("Pushing...")
                             event.teams[k].members.push({
