@@ -2,14 +2,6 @@
 var fs = require('fs');
 require('dotenv').config();
 
-eventId = 0;
-teamId = 0;
-
-member = {
-    teamIdm: teamId,
-    name: "Name 10"
-}
-
 console.log(" weid");
 module.exports = (app) => {
     //get the team id and add the member to the array
@@ -23,19 +15,28 @@ module.exports = (app) => {
 
         const strMembers = JSON.stringify(member);
 
-        json["events"][eventId]["teams"][teamId]["memberRequests"].push({
-            "teamId": teamId,
-            "name": member["name"]
+        request.on('data', chunk => {
+            buffer += chunk;
         });
+        request.on('end', () => {
+            // POST request body is now available as `buffer`
+            console.log(buffer)
+            obj = JSON.parse(buffer);
 
-        fs.writeFile(`eventsData.json`, JSON.stringify(json), 'utf8', (err) => {
-            if (err)
-                console.log(err);
-            else {
-                console.log("File written successfully\n");
-            }
+            json["events"][obj.eventId].push({
+                "teamId": obj.teamId,
+                "name": obj.name
+            });
+
+            fs.writeFile(`eventsData.json`, JSON.stringify(json), 'utf8', (err) => {
+                if (err)
+                    console.log(err);
+                else {
+                    console.log("File written successfully\n");
+                }
+            });
         });
-        response.send(json["events"][eventId]["teams"][teamId]["memberRequests"]);
+        response.status(200).end();
     });
 
 
