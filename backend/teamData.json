@@ -1,253 +1,78 @@
 {
-  "events": [
-    {
-      "name": "Hackathon",
-      "id": "21",
-      "description": "string",
-      "teams": [
-        {
-          "teamName": "Team Name",
-          "teamId": "0",
-          "host": {
-            "memberId": "0",
-            "name": "Name Sample",
-            "title": "Java Dev",
-            "description": "String example",
-            "password": "pass"
-          },
-          "currentMembers": "0",
-          "maxCapacity": "5",
-          "members": [
-            {
-              "memberId": "0",
-              "name": "Name Sample",
-              "title": "Java Dev",
-              "description": "String example",
-              "password": "pass"
-            }
-          ]
-        },
-        {
-          "teamName": "Team Name2",
-          "teamId": "1",
-          "host": {
-            "memberId": "0",
-            "name": "Name Sample",
-            "title": "Java Dev",
-            "description": "String example",
-            "password": "pass"
-          },
-          "currentMembers": "0",
-          "maxCapacity": "5",
-          "members": [
-            {
-              "memberId": "0",
-              "name": "Name Sample",
-              "title": "Java Dev",
-              "description": "String example",
-              "password": "pass"
-            }
-          ]
-        },
-        {
-          "teamName": "BDJOwdn12dx",
-          "teamId": "1",
-          "host": {
-            "memberId": "0",
-            "name": "Name Sample",
-            "title": "Python Dev",
-            "description": "String example",
-            "password": "pass"
-          },
-          "currentMembers": "0",
-          "maxCapacity": "5",
-          "members": [
-            {
-              "memberId": "0",
-              "name": "Name Sample",
-              "title": "Java Dev",
-              "description": "String example",
-              "password": "pass"
-            }
-          ]
-        },
-        {
-          "teamName": "dwa",
-          "teamId": 1,
-          "host": {
-            "memberId": 0,
-            "name": "Name Sample",
-            "title": "Java Dev",
-            "description": "String example",
-            "password": "apsdaw"
-          },
-          "currentMembers": 0,
-          "maxCapacity": 5,
-          "members": [
-            {
-              "memberId": 0,
-              "name": "Name Sample",
-              "title": "Java Dev",
-              "description": "String example",
-              "password": "pawdoja"
-            }
-          ]
-        },
-        {
-          "teamName": "dwa",
-          "teamId": 1,
-          "host": {
-            "memberId": 0,
-            "name": "Name Sample",
-            "title": "Java Dev",
-            "description": "String example",
-            "password": "apsdaw"
-          },
-          "currentMembers": 0,
-          "maxCapacity": 5,
-          "members": [
-            {
-              "memberId": 0,
-              "name": "Name Sample",
-              "title": "Java Dev",
-              "description": "String example",
-              "password": "pawdoja"
-            }
-          ]
-        },
-        {
-          "teamName": "dwa",
-          "teamId": 1,
-          "host": {
-            "memberId": 0,
-            "name": "Name Sample",
-            "title": "Java Dev",
-            "description": "String example",
-            "password": "apsdaw"
-          },
-          "currentMembers": 0,
-          "maxCapacity": 5,
-          "members": [
-            {
-              "memberId": 0,
-              "name": "Name Sample",
-              "title": "Java Dev",
-              "description": "String example",
-              "password": "pawdoja"
-            }
-          ]
-        },
-        {
-          "teamName": "dwa",
-          "teamId": 1,
-          "host": {
-            "memberId": 0,
-            "name": "Name Sample",
-            "title": "Java Dev",
-            "description": "String example",
-            "password": "apsdaw"
-          },
-          "currentMembers": 0,
-          "maxCapacity": 5,
-          "members": [
-            {
-              "memberId": 0,
-              "name": "Name Sample",
-              "title": "Java Dev",
-              "description": "String example",
-              "password": "pawdoja"
-            }
-          ]
-        },
-        {
-          "teamName": "dwa",
-          "teamId": 1,
-          "host": {
-            "memberId": 0,
-            "name": "Name Sample",
-            "title": "Java Dev",
-            "description": "String example",
-            "password": "apsdaw"
-          },
-          "currentMembers": 0,
-          "maxCapacity": 5,
-          "members": [
-            {
-              "memberId": 0,
-              "name": "Name Sample",
-              "title": "Java Dev",
-              "description": "String example",
-              "password": "pawdoja"
-            }
-          ]
-        },
-        {
-          "teamName": "dwa",
-          "teamId": 1,
-          "host": {
-            "memberId": 0,
-            "name": "Name Sample",
-            "title": "Java Dev",
-            "description": "String example",
-            "password": "apsdaw"
-          },
-          "currentMembers": 0,
-          "maxCapacity": 5,
-          "members": [
-            {
-              "memberId": 0,
-              "name": "Name Sample",
-              "title": "Java Dev",
-              "description": "String example",
-              "password": "pawdoja"
-            }
-          ]
-        },
-        {
-          "teamName": "The best team",
-          "teamId": 1,
-          "host": {
-            "memberId": 123,
-            "name": "Bobington",
-            "title": "Java Dev",
-            "description": "I am a good devloper",
-            "password": "apsdaw"
-          },
-          "currentMembers": 1,
-          "maxCapacity": 5,
-          "members": [
-            {
-              "memberId": 123,
-              "name": "Bobington",
-              "title": "Java Dev",
-              "description": "I am a good devloper",
-              "password": "apsdaw"
-            }
-          ]
-        },
-        {
-          "teamName": "The best team",
-          "teamId": 1,
-          "host": {
-            "memberId": 123,
-            "name": "Bobington",
-            "title": "Java Dev",
-            "description": "I am a good devloper",
-            "password": "apsdaw"
-          },
-          "currentMembers": 1,
-          "maxCapacity": 5,
-          "members": [
-            {
-              "memberId": 123,
-              "name": "Bobington",
-              "title": "Java Dev",
-              "description": "I am a good devloper",
-              "password": "apsdaw"
-            }
-          ]
-        }
-      ]
-    }
-  ]
+	"events": [
+		{
+			"name": "Hackathon",
+			"id": "21",
+			"description": "string",
+			"teams": [
+				{
+					"teamName": "Team Name",
+					"teamId": "0",
+					"host": {
+						"memberId": "0",
+						"name": "Name Sample",
+						"title": "Java Dev",
+						"description": "String example",
+						"password": "pass"
+					},
+					"currentMembers": "0",
+					"maxCapacity": "5",
+					"members": [
+						{
+							"memberId": "0",
+							"name": "Name Sample",
+							"title": "Java Dev",
+							"description": "String example",
+							"password": "pass"
+						}
+					]
+				},
+				{
+					"teamName": "Team Name2",
+					"teamId": "1",
+					"host": {
+						"memberId": "0",
+						"name": "Name Sample",
+						"title": "Java Dev",
+						"description": "String example",
+						"password": "pass"
+					},
+					"currentMembers": "0",
+					"maxCapacity": "5",
+					"members": [
+						{
+							"memberId": "0",
+							"name": "Name Sample",
+							"title": "Java Dev",
+							"description": "String example",
+							"password": "pass"
+						}
+					]
+				},
+				{
+					"teamName": "BDJOwdn12dx",
+					"teamId": "1",
+					"host": {
+						"memberId": "0",
+						"name": "Name Sample",
+						"title": "Python Dev",
+						"description": "String example",
+						"password": "pass"
+					},
+					"currentMembers": "0",
+					"maxCapacity": "5",
+					"members": [
+						{
+							"memberId": "0",
+							"name": "Name Sample",
+							"title": "Java Dev",
+							"description": "String example",
+							"password": "pass"
+						}
+					]
+				}
+			],
+			"requests": []
+		}
+	]
 }
