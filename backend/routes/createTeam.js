@@ -24,6 +24,7 @@ module.exports = (app) => {
         request.on('end', () => {
             // POST request body is now available as `buffer`
             var obj = JSON.parse(buffer);
+            console.log(obj);
             for (var event of fileData.events) {
                 if (event.id == obj.eventId) {
                     // Found the event, now add the team
@@ -41,7 +42,7 @@ module.exports = (app) => {
                         }
                     };
                     const team = {
-                        "teamName": obj.teamName, "maxCapacity": obj.maxCapacity, "host": {
+                        "teamName": obj.teamName, "maxCapacity": obj.maxCapacity, "teamId": teamID, "host": {
                             "name": obj.hostName, "title": obj.hostTitle,
                             "description": obj.hostDescription
                         }, "currentMembers": "0", "members": []
@@ -54,7 +55,7 @@ module.exports = (app) => {
                         }
                         console.log("File written successfully\n");
                     });
-                    response.write(`${teamID}`)
+                    response.write(`${teamID}, ${team.teamName}`);
                     response.send();
                 }
             }
