@@ -21,7 +21,7 @@ module.exports = (app) => {
                     // Found the event, now add the request
                     var hasRequested = false;
                     for (var i in event.requests) {
-                        if (event.requests[i].name == obj.name && event.requests[i] == obj.teamId) {
+                        if (event.requests[i].name == obj.name && event.requests[i].teamId == obj.teamId) {
                             hasRequested = true;
                         };
                     };
