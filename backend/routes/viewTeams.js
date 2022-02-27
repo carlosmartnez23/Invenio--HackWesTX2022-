@@ -10,7 +10,7 @@ module.exports = (app) => {
         // read the json file
         const fileName = process.env.JSON_FILE;
         var json = require(`../${fileName}`);
-
+        
         res.send(json["events"][eventID]["teams"]);
 
     });
