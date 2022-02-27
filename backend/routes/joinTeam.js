@@ -16,7 +16,7 @@ module.exports = (app) => {
 
 
 
-    app.get("/joinTeam", (request, response) => {
+    app.post("/joinTeam", (request, response) => {
         const fileName = process.env.JSON_FILE;
         console.log("sSOmething weid", member["memberId"]);
         var json = require(`../${fileName}`);
