@@ -4,17 +4,16 @@
 
 require('dotenv').config();
 
-module.exports = (app) =>{
+module.exports = (app) => {
 
     var fs = require('fs');
-    const cors=require('cors'); 
-    
+    const cors = require('cors');
+
     app.post('/createTeam', (request, response) => {
-        
+
         const fileName = process.env.JSON_FILE;
         console.log("Post request on /createTeam");
         var fileData = require(`../${fileName}`);
-        console.log(fileData);
 
         let buffer = '';
         var obj;
@@ -26,9 +25,9 @@ module.exports = (app) =>{
             console.log(buffer)
             obj = JSON.parse(buffer);
             //console.log(fileData.events[0].name);
-            for(var event of fileData.events){
-                
-                if(event.id == obj.eventId){
+            for (var event of fileData.events) {
+
+                if (event.id == obj.eventId) {
                     //console.log(event.name)
                     // Found the event, now add the team
                     event.teams.push(obj.team);

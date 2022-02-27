@@ -2,43 +2,47 @@
 var fs = require('fs');
 require('dotenv').config();
 
-console.log(" weid");
 module.exports = (app) => {
     //get the team id and add the member to the array
 
-
-
     app.post("/joinTeam", (request, response) => {
         const fileName = process.env.JSON_FILE;
-        console.log("sSOmething weid", member["memberId"]);
         var json = require(`../${fileName}`);
 
-        const strMembers = JSON.stringify(member);
-
+        let buffer = '';
         request.on('data', chunk => {
             buffer += chunk;
         });
         request.on('end', () => {
             // POST request body is now available as `buffer`
-            console.log(buffer)
-            obj = JSON.parse(buffer);
+            var obj = JSON.parse(buffer);
+            for (var event of json.events) {
 
-            json["events"][obj.eventId].push({
-                "teamId": obj.teamId,
-                "name": obj.name
-            });
-
-            fs.writeFile(`eventsData.json`, JSON.stringify(json), 'utf8', (err) => {
-                if (err)
-                    console.log(err);
-                else {
-                    console.log("File written successfully\n");
+                if (event.id == obj.eventId) {
+                    // Found the event, now add the request
+                    var hasRequested = false;
+                    for (var request in event.requests) {
+                        if (request.name == obj.name && request.teamId == obj.teamId) {
+                            hasRequested = true;
+                        };
+                    };
+                    if (hasRequested == false) {
+                        event.requests.push({
+                            "teamId": obj.teamId,
+                            "name": obj.name
+                        });
+                        fs.writeFile(fileName, JSON.stringify(json), 'utf8', (err) => {
+                            if (err) {
+                                console.log(err);
+                                res.sendStatus(404);
+                            }
+                            console.log("File written successfully\n");
+                            response.status(200).end();
+                        });
+                    };
+                    res.sendStatus(404);
                 }
-            });
+            }
         });
-        response.status(200).end();
     });
-
-
-
 }
