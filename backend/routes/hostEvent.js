@@ -2,6 +2,7 @@ const fs = require('fs');
 require('dotenv').config();
 
 module.exports = (app) => {
+
     function getRandomID(digits) {
         return Math.floor(Math.random() * digits);
     }
