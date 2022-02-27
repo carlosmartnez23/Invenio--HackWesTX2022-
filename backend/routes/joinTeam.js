@@ -12,11 +12,11 @@ member = {
     description: "10"
 }
 
-
+console.log(" weid");
 module.exports = (app) => {
  //get the team id and add the member to the array
 
-    console.log(" weid");
+
 
  app.get("/joinTeam", (request, response) => {
      const fileName = process.env.JSON_FILE;
