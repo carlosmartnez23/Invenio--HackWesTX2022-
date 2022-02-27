@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 module.exports = (app) => {
-    app.post("/hostDeny", (request, response) => {
+    app.post("/hostDenial", (request, response) => {
         const fileName = process.env.JSON_FILE;
         var json = require(`../${fileName}`);
 

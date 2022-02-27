@@ -29,11 +29,6 @@ module.exports = (app) => {
                             }
                         }
                         if (approved) {
-                            console.log(JSON.stringify({
-                                "teamName": team.teamName,  // team name
-                                "host": team.host.name,     // team host name
-                                "members": membersNames     // list of member names
-                            }))
                             response.write(JSON.stringify({
                                 "teamName": team.teamName,  // team name
                                 "host": team.host.name,     // team host name
