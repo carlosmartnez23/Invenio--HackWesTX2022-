@@ -1,9 +1,5 @@
 const fs = require('fs');
 require('dotenv').config();
-const cors = require('cors');
-
-// title = "Java Dev",
-// description = "String example"
 
 function getRandomID(digits) {
     return Math.floor(Math.random() * digits);

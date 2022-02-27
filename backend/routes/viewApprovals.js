@@ -25,10 +25,15 @@ module.exports = (app) => {
                             if (member.name == obj.name) {
                                 approved = true;
                             } else {
-                                membersNames.push(member.name);
+                                membersNames.push({ "name": member.name });
                             }
                         }
                         if (approved) {
+                            console.log(JSON.stringify({
+                                "teamName": team.teamName,  // team name
+                                "host": team.host.name,     // team host name
+                                "members": membersNames     // list of member names
+                            }))
                             response.write(JSON.stringify({
                                 "teamName": team.teamName,  // team name
                                 "host": team.host.name,     // team host name

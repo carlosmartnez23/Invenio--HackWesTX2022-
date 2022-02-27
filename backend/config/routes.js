@@ -9,4 +9,5 @@ module.exports = function (app) {
     require("../routes/joinEvent")(app);
     require("../routes/hostApprove")(app);
     require("../routes/viewApprovals")(app);
+    require("../routes/hostDeny")(app);
 };
