@@ -7,4 +7,5 @@ module.exports = function (app) {
     require("../routes/viewTeams.js")(app);
     require("../routes/viewRequests.js")(app);
     require("../routes/joinEvent.js")(app);
+    require("../routes/hostApprove.js")(app);
 };

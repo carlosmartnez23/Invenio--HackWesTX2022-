@@ -21,7 +21,6 @@ module.exports = (app) => {
                     // Found the event, now add the request
                     var hasRequested = false;
                     for (var i in event.requests) {
-                        console.log(event.requests[i].name, event.requests[i].teamId);
                         if (event.requests[i].name == obj.name && event.requests[i].teamId == obj.teamId) {
                             hasRequested = true;
                         };
@@ -34,13 +33,15 @@ module.exports = (app) => {
                         fs.writeFile(fileName, JSON.stringify(json), 'utf8', (err) => {
                             if (err) {
                                 console.log(err);
-                                res.sendStatus(404);
+                                response.sendStatus(404);
                             }
                             console.log("File written successfully\n");
                             response.sendStatus(200);
                         });
                     } else {
-                        response.sendStatus(404);
+                        var resMessage = "Previous request already made to this team";
+                        response.write(`${resMessage}`);
+                        response.send();
                     }
                 }
             }

@@ -45,13 +45,13 @@ module.exports = (app) => {
                         "teamName": obj.teamName, "maxCapacity": obj.maxCapacity, "teamId": teamID, "host": {
                             "name": obj.hostName, "title": obj.hostTitle,
                             "description": obj.hostDescription
-                        }, "currentMembers": "0", "members": []
+                        }, "currentMembers": "1", "members": []
                     };
                     event.teams.push(team);
                     fs.writeFileSync(`./${fileName}`, JSON.stringify(fileData), 'utf8', (err) => {
                         if (err) {
                             console.log(err);
-                            res.send();
+                            response.send();
                         }
                         console.log("File written successfully\n");
                     });
