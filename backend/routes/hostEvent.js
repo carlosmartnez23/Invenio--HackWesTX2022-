@@ -17,26 +17,35 @@ module.exports = (app) => {
         const description = "Hackathon organized by TTU";
 
         // create an event ID and check if it's valid
-        var valid = false;
+        while (true) {
+            var valid = true;
+            var teamID = getRandomID(99999);
+            for (let i = 0; i < json.events.length; i++) {
+                if (teamID == json.events[i].id) {
+                    valid = false;
+                }
+            }
+            if (valid) {
+                break
+            }
+        }
 
-
-
+        // append all the information to the json
         json["events"].push({
-            "name": "Hackathon",
-            "id": 0,
-            "description": "string",
+            "name": name,
+            "id": teamID,
+            "description": description,
             "teams": []
         })
 
+        // rewrite the json file
+        fs.writeFile(fileName, JSON.stringify(json), 'utf8', (err) => {
+            if (err)
+                console.log(err);
+            res.send();
+            console.log("File written successfully\n");
+        });
+
         res.sendStatus(200);
-
-        // fs.writeFile(`test.json`, JSON.stringify(json), 'utf8', (err) => {
-        //     if (err)
-        //         console.log(err);
-        //     else {
-        //         console.log("File written successfully\n");
-        //     }
-        // });
-
     });
 };

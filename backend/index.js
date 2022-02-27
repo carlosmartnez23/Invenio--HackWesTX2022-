@@ -10,8 +10,6 @@ app.get("/", (req, res) => {
     res.status(200).send("HackWesTx!! 2022");
 });
 
-//app.post("/")
-
 require("./config/routes.js")(app);
 
 app.listen(port, () => {
