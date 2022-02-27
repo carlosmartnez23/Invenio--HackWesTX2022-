@@ -5,26 +5,34 @@
             "id": 0,
             "description": "string",
             "teams": [
-                {
-                    "teamName": "Team Name",
-                    "teamId": 0,
-                    "host": {
-                        "memberId": 0,
-                        "name": "Name Sample",
-                        "title": "Java Dev",
-                        "description": "String example"
-                    },
-                    "currentMembers": 1,
-                    "maxCapacity": 5,
-                    "members": [
-                        {
-                            "memberId": 0,
-                            "name": "Name Sample",
-                            "title": "Java Dev",
-                            "description": "String example"
-                        }
-                    ]
-                }
+              {
+                "teamName": "Team Name",
+                "teamId": 0,
+                "host": {
+                  "memberId": 0,
+                  "name": "Name Sample",
+                  "title": "Java Dev",
+                  "description": "String example"
+                },
+                "currentMembers": 1,
+                "maxCapacity": 5,
+                "members": [
+                  {
+                    "memberId": 0,
+                    "name": "Name Sample",
+                    "title": "Java Dev",
+                    "description": "String example"
+                  }
+                ],
+                "memberRequests": [
+                  {
+                    "memberId": 0,
+                    "name": "Name Sample",
+                    "title": "Java Dev",
+                    "description": "String example"
+                  }
+                ]
+              }
             ]
         }
     ]
