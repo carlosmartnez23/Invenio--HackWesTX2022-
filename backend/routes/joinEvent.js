@@ -10,21 +10,17 @@ module.exports = (app) => {
 
         // get the name and description of the event from the request
         const teamID = 1;
+        let valid = false;
 
         for (let i = 0; i < json.events.length; i++) {
             if (teamID == json.events[i].id) {
-                valid = false;
+                valid = true;
             }
         }
 
-        // rewrite the json file
-        fs.writeFile(fileName, JSON.stringify(json), 'utf8', (err) => {
-            if (err)
-                console.log(err);
-            res.send();
-            console.log("File written successfully\n");
-        });
-
-        res.sendStatus(200);
+        if (valid) {
+            res.sendStatus(200);
+        }
+        res.sendStatus(404);
     });
 };
