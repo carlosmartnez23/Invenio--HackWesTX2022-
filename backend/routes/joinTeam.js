@@ -17,12 +17,11 @@ module.exports = (app) => {
             // POST request body is now available as `buffer`
             var obj = JSON.parse(buffer);
             for (var event of json.events) {
-
                 if (event.id == obj.eventId) {
                     // Found the event, now add the request
                     var hasRequested = false;
-                    for (var request in event.requests) {
-                        if (request.name == obj.name && request.teamId == obj.teamId) {
+                    for (var i in event.requests) {
+                        if (event.requests[i].name == obj.name && event.requests[i] == obj.teamId) {
                             hasRequested = true;
                         };
                     };
@@ -37,10 +36,11 @@ module.exports = (app) => {
                                 res.sendStatus(404);
                             }
                             console.log("File written successfully\n");
-                            response.status(200).end();
+                            response.sendStatus(200);
                         });
-                    };
-                    res.sendStatus(404);
+                    } else {
+                        response.sendStatus(404);
+                    }
                 }
             }
         });

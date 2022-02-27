@@ -19,7 +19,7 @@ module.exports = (app) => {
         // create an event ID and check if it's valid
         while (true) {
             var valid = true;
-            var teamID = getRandomID(99999);
+            var eventId = getRandomID(99999);
             for (let i = 0; i < json.events.length; i++) {
                 if (teamID == json.events[i].id) {
                     valid = false;
@@ -33,16 +33,17 @@ module.exports = (app) => {
         // append all the information to the json
         json["events"].push({
             "name": name,
-            "id": teamID,
+            "id": eventId,
             "description": description,
             "teams": []
         })
 
         // rewrite the json file
         fs.writeFile(fileName, JSON.stringify(json), 'utf8', (err) => {
-            if (err)
+            if (err) {
                 console.log(err);
-            res.send();
+                res.send();
+            }
             console.log("File written successfully\n");
         });
 
