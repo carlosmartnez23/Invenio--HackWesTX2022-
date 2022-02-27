@@ -41,11 +41,16 @@ module.exports = (app) => {
                             break;
                         }
                     };
+
+                    var maxCap = obj.maxCapacity;
+                    if (Number.isInteger(maxCap) == false) {
+                        maxCap = parseInt(obj.maxCapacity);
+                    }
                     const team = {
-                        "teamName": obj.teamName, "maxCapacity": obj.maxCapacity, "teamId": teamID, "host": {
+                        "teamName": obj.teamName, "maxCapacity": maxCap, "teamId": teamID, "host": {
                             "name": obj.hostName, "title": obj.hostTitle,
-                            "description": obj.hostDescription
-                        }, "currentMembers": "1", "members": []
+                            "description": JSON.parse(obj.hostDescription)
+                        }, "currentMembers": 1, "members": []
                     };
                     event.teams.push(team);
                     fs.writeFileSync(`./${fileName}`, JSON.stringify(fileData), 'utf8', (err) => {

@@ -10,7 +10,7 @@ function getRandomID(digits) {
 }
 
 module.exports = (app) => {
-    app.get("/hostApprove", (request, response) => {
+    app.post("/hostApprove", (request, response) => {
         const fileName = process.env.JSON_FILE;
         var json = require(`../${fileName}`);
 
@@ -23,10 +23,12 @@ module.exports = (app) => {
             var obj = JSON.parse(buffer);
             for (var event of json.events) {
                 if (event.id == obj.eventId) {
+                    let deleted = '';
                     for (var i in event.requests) {
                         if (event.requests[i].name == obj.name) {
                             console.log("Deleting...")
-                            var deleted = event.requests.splice(i, 1);
+                            deleted = event.requests.splice(i, 1);
+                            console.log(deleted);
                         };
                     };
                     for (var k in event.teams) {
@@ -36,16 +38,18 @@ module.exports = (app) => {
                             console.log("Pushing...")
                             event.teams[k].members.push({
                                 "memberId": getRandomID(99999),
-                                "name": obj.name
-                            })
+                                "name": deleted[0].name,
+                                "skills": deleted[0].skills
+                            });
+                            event.teams[k].currentMembers = event.teams[k].currentMembers + 1;
                             fs.writeFile(fileName, JSON.stringify(json), 'utf8', (err) => {
                                 if (err) {
                                     console.log(err);
                                     response.sendStatus(404);
                                 }
                                 console.log("File written successfully\n");
-                                response.sendStatus(200);
                             });
+                            break;
                         }
                     };
                     response.sendStatus(200);

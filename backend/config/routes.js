@@ -1,11 +1,12 @@
 module.exports = function (app) {
 
-    require("../routes/hostEvent.js")(app);
-    require("../routes/joinTeam.js")(app);
-    require("../routes/hostTeam.js")(app);
-    require("../routes/createTeam.js")(app);
-    require("../routes/viewTeams.js")(app);
-    require("../routes/viewRequests.js")(app);
-    require("../routes/joinEvent.js")(app);
-    require("../routes/hostApprove.js")(app);
+    require("../routes/hostEvent")(app);
+    require("../routes/joinTeam")(app);
+    require("../routes/hostTeam")(app);
+    require("../routes/createTeam")(app);
+    require("../routes/viewTeams")(app);
+    require("../routes/viewRequests")(app);
+    require("../routes/joinEvent")(app);
+    require("../routes/hostApprove")(app);
+    require("../routes/viewApprovals")(app);
 };

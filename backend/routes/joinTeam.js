@@ -28,7 +28,8 @@ module.exports = (app) => {
                     if (hasRequested == false) {
                         event.requests.push({
                             "teamId": obj.teamId,
-                            "name": obj.name
+                            "name": obj.name,
+                            "skills": obj.skills
                         });
                         fs.writeFile(fileName, JSON.stringify(json), 'utf8', (err) => {
                             if (err) {
